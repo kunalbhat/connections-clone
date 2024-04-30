@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 const Tile = ({
   data,
+  deselect,
   selectedCount,
-  setSelectedCount,
+  setDeselected,
   selectedItems,
   setSelectedItems,
 }) => {
@@ -13,19 +14,22 @@ const Tile = ({
     // Select and add to the selected items array
     if (selectedCount < 4 && selected === false) {
       setSelected(true);
-      setSelectedCount(selectedCount + 1);
       setSelectedItems([...selectedItems, data]);
     }
 
     // Deselect and remove from the selected items array
     if (selected === true) {
       setSelected(false);
-      setSelectedCount(selectedCount - 1);
       setSelectedItems((selectedItems) => {
         return selectedItems.filter((item) => item !== data);
       });
     }
   }
+
+  useEffect(() => {
+    setSelected(false);
+    setDeselected(false);
+  }, [deselect, setDeselected]);
 
   return (
     <li

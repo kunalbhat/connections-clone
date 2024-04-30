@@ -22,6 +22,30 @@
   @apply bg-[#5a594f] text-white;
 }
 
+.tile-row {
+  @apply bg-gray-100 h-24 min-w-96 col-span-4 rounded-md;
+}
+
+.tile-row.lvl1 {
+  @apply bg-[#f5e07e];
+}
+
+.tile-row.lvl2 {
+  @apply bg-[#b4c3eb];
+}
+
+.tile-row.lvl3 {
+  @apply bg-[#a7c268];
+}
+
+.tile-row.lvl4 {
+  @apply bg-[#b283c1];
+}
+
 .button {
   @apply rounded-full border-2 disabled:border-gray-300 disabled:text-gray-400 border-black px-4 py-2 text-black;
+}
+
+.mistakes {
+  @apply bg-[#5a594f] h-3 w-3 rounded-full;
 }
