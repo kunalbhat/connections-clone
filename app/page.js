@@ -74,6 +74,7 @@ export default function Home() {
             setMistakes(mistakes + 1);
           } else {
             console.log("no match :(");
+            // FIX: Bug where it decrements on correct guesses
             setMistakes(mistakes - 1);
           }
 
@@ -125,7 +126,6 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center p-24">
       <header className="mb-8">
         <p>Create four groups of four!</p>
-        <p>Selected items: {JSON.stringify(selectedItems)}</p>
       </header>
       <>
         {boardReady ? (
