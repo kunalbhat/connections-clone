@@ -23,7 +23,7 @@
 }
 
 .tile-row {
-  @apply bg-gray-100 md:h-24 min-w-96 col-span-4 rounded-md;
+  @apply bg-gray-100 h-20 md:h-24 w-full md:min-w-96 col-span-4 rounded-md;
 }
 
 .tile-row.lvl1 {
