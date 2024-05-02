@@ -123,7 +123,7 @@ export default function Home() {
   }, [solvedGroups]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col items-center p-8 lg:p-24">
       <header className="mb-8">
         <p>Create four groups of four!</p>
       </header>
