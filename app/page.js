@@ -186,6 +186,9 @@ export default function Home() {
       </>
       <div className="misses flex gap-2 py-6">{displayMisses()}</div>
       <div className="controls flex gap-2 py-6">
+        <button className="button" onClick={updateBoard}>
+          Shuffle
+        </button>
         <button
           className="button"
           disabled={selectedCount === 0 ? "disabled" : ""}
