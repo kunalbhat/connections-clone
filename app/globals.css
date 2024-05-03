@@ -11,7 +11,11 @@
 /* Game board UI */
 
 .gameboard {
-  @apply grid grid-cols-4 gap-2;
+  @apply grid grid-cols-4 gap-2 w-full;
+}
+
+.alert {
+  @apply bg-black text-white p-3 text-sm rounded-md font-semibold absolute top-3;
 }
 
 .tile {
@@ -46,6 +50,22 @@
   @apply rounded-full border-2 disabled:border-gray-300 disabled:text-gray-400 border-black px-4 py-2 text-black;
 }
 
+.button.filled {
+  @apply bg-black text-white border-black disabled:bg-transparent disabled:border-gray-300 disabled:text-gray-400;
+}
+
+.scoring {
+  @apply text-gray-700;
+}
+
+.scoring.disabled {
+  @apply text-gray-400;
+}
+
+.scoring.disabled .mistakes {
+  @apply bg-gray-400;
+}
+
 .mistakes {
-  @apply bg-[#5a594f] h-3 w-3 rounded-full;
+  @apply bg-gray-700 h-3 w-3 rounded-full;
 }

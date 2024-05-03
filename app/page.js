@@ -39,10 +39,10 @@ export default function Home() {
   const [deselect, setDeselected] = useState(false);
   const [solvedGroups, setSolvedGroups] = useState([]);
   const [mistakes, setMistakes] = useState(4);
+  const [gameover, setGameover] = useState(false);
+  const [rating, setRating] = useState();
 
   const updateBoard = () => {
-    console.log("loading data...");
-
     let tempArr = [];
 
     for (const [a, b] of Object.entries(gameData)) {
@@ -122,11 +122,28 @@ export default function Home() {
 
   useEffect(() => {
     updateBoard();
+
+    if (mistakes === 4) {
+      setRating("Perfect");
+    } else if (mistakes === 3) {
+      setRating("Great");
+    } else if (mistakes === 2) {
+      setRating("Good");
+    } else if (mistakes === 1) {
+      setRating("Phew");
+    }
+
+    if (solvedGroups.length === 4) {
+      setGameover(true);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [solvedGroups]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-8 lg:p-24">
+    <main className="flex min-h-screen flex-col items-center p-8 lg:p-24 pt-16">
+      {gameover && rating ? <span className="alert">{rating}</span> : ""}
+
       <header className="mb-8">
         <p>Create four groups of four!</p>
       </header>
@@ -187,25 +204,37 @@ export default function Home() {
           <p>Loading</p>
         )}
       </>
-      <div className="misses flex gap-2 py-6">{displayMisses()}</div>
+      <div
+        className={`scoring flex gap-2 py-6 items-center ${
+          gameover ? "disabled" : ""
+        }`}
+      >
+        Mistakes remaining: {displayMisses()}
+      </div>
       <div className="controls flex gap-2 py-6">
-        <button className="button" onClick={updateBoard}>
-          Shuffle
-        </button>
-        <button
-          className="button"
-          disabled={selectedCount === 0 ? "disabled" : ""}
-          onClick={deselectAll}
-        >
-          Deselect all
-        </button>
-        <button
-          className="button"
-          disabled={selectedCount < 4 ? "disabled" : ""}
-          onClick={compareArrays}
-        >
-          Submit
-        </button>
+        {gameover ? (
+          <button className="button">View results</button>
+        ) : (
+          <>
+            <button className="button" onClick={updateBoard}>
+              Shuffle
+            </button>
+            <button
+              className="button"
+              disabled={selectedCount === 0 ? "disabled" : ""}
+              onClick={deselectAll}
+            >
+              Deselect all
+            </button>
+            <button
+              className="button filled"
+              disabled={selectedCount < 4 ? "disabled" : ""}
+              onClick={compareArrays}
+            >
+              Submit
+            </button>
+          </>
+        )}
       </div>
     </main>
   );
