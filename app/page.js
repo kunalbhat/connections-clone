@@ -10,24 +10,24 @@ export default function Home() {
   const gameData = {
     data: {
       1: {
-        title: "Power issues",
+        title: "Letters of the alphabet",
         difficulty: 1,
-        items: ["spike", "surge", "outage", "short"],
+        items: ["A", "B", "C", "D"],
       },
       2: {
-        title: "Summary",
+        title: "Animals",
         difficulty: 2,
-        items: ["digest", "brief", "outline", "abstract"],
+        items: ["Aardvark", "Zebra", "Giraffe", "Elephant"],
       },
       3: {
-        title: "Trust as real",
+        title: "Planets",
         difficulty: 3,
-        items: ["accept", "believe", "buy", "swallow"],
+        items: ["Earth", "Mars", "Jupiter", "Saturn"],
       },
       4: {
-        title: "Name homophones",
+        title: "Elements",
         difficulty: 4,
-        items: ["kneel", "wane", "hairy", "curt"],
+        items: ["Iron", "Gold", "Silver", "Mercury"],
       },
     },
   };
@@ -236,6 +236,17 @@ export default function Home() {
           </>
         )}
       </div>
+      <span className="text-xs text-gray-500">
+        Built with React/Next.js, deployed on Vercel, code on{" "}
+        <a
+          href="https://github.com/kunalbhat/connections-clone"
+          target="_blank"
+          className="text-blue-500 hover:text-blue-700 hover:underline"
+        >
+          Github
+        </a>
+        .
+      </span>
     </main>
   );
 }
