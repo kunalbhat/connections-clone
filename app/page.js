@@ -141,7 +141,7 @@ export default function Home() {
   }, [solvedGroups]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-8 lg:p-24 pt-16">
+    <main className="flex min-h-screen flex-col items-center pt-16 lg:py-24">
       {gameover && rating ? <span className="alert">{rating}</span> : ""}
 
       <header className="mb-8">
@@ -204,14 +204,10 @@ export default function Home() {
           <p>Loading</p>
         )}
       </>
-      <div
-        className={`scoring flex gap-2 py-6 items-center ${
-          gameover ? "disabled" : ""
-        }`}
-      >
+      <div className={`scoring ${gameover ? "disabled" : ""}`}>
         Mistakes remaining: {displayMisses()}
       </div>
-      <div className="controls flex gap-2 py-6">
+      <div className="controls">
         {gameover ? (
           <button className="button">View results</button>
         ) : (
@@ -236,7 +232,7 @@ export default function Home() {
           </>
         )}
       </div>
-      <span className="text-xs text-gray-500">
+      <span className="text-xs text-center text-gray-500 mt-auto">
         Built with React/Next.js, deployed on Vercel, code on{" "}
         <a
           href="https://github.com/kunalbhat/connections-clone"

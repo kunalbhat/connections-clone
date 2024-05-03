@@ -27,7 +27,7 @@
 }
 
 .tile-row {
-  @apply bg-gray-100 h-20 sm:h-24 w-full sm:min-w-96 col-span-4 rounded-md;
+  @apply bg-gray-100 h-20 sm:h-24 w-full min-w-80 px-10 sm:min-w-96 col-span-4 rounded-md;
 }
 
 .tile-row.lvl1 {
@@ -55,7 +55,7 @@
 }
 
 .scoring {
-  @apply text-gray-700;
+  @apply flex gap-2 py-6 items-center text-gray-700;
 }
 
 .scoring.disabled {
@@ -68,4 +68,8 @@
 
 .mistakes {
   @apply bg-gray-700 h-3 w-3 rounded-full;
+}
+
+.controls {
+  @apply flex gap-2 pb-6;
 }
