@@ -62,6 +62,8 @@ export default function Home() {
   };
 
   function compareArrays() {
+    let missCount = 0;
+
     for (const [a, b] of Object.entries(gameData)) {
       if (a === "data") {
         for (const [c, d] of Object.entries(b)) {
@@ -71,16 +73,17 @@ export default function Home() {
           if (JSON.stringify(tempArrA) === JSON.stringify(tempArrB)) {
             setSolvedGroups([...solvedGroups, c]);
             updateBoard();
-            setMistakes(mistakes + 1);
           } else {
-            console.log("no match :(");
-            // FIX: Bug where it decrements on correct guesses
-            setMistakes(mistakes - 1);
+            missCount++;
           }
 
           deselectAll();
         }
       }
+    }
+
+    if (missCount === 4) {
+      setMistakes(mistakes - 1);
     }
   }
 
