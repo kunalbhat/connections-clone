@@ -11,7 +11,7 @@
 /* Game board UI */
 
 .gameboard {
-  @apply grid grid-cols-4 gap-2 w-full sm:max-w-96;
+  @apply grid grid-cols-4 gap-2 w-fit;
 }
 
 .alert {
@@ -19,7 +19,7 @@
 }
 
 .tile {
-  @apply bg-[#efefe7] w-20 h-20 md:h-24 md:w-24 flex items-center justify-center rounded-md text-xs md:text-sm font-bold uppercase;
+  @apply bg-[#efefe7] w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-md text-xs md:text-sm font-bold uppercase;
 }
 
 .tile.selected {
@@ -27,7 +27,7 @@
 }
 
 .tile-row {
-  @apply bg-gray-100 h-20 md:h-24 w-full md:min-w-96 col-span-4 rounded-md;
+  @apply bg-gray-100 h-20 sm:h-24 w-full sm:min-w-96 col-span-4 rounded-md;
 }
 
 .tile-row.lvl1 {
