@@ -11,7 +11,7 @@
 /* Game board UI */
 
 .gameboard {
-  @apply grid grid-cols-4 gap-2 w-full;
+  @apply grid grid-cols-4 gap-2 w-full sm:max-w-96;
 }
 
 .alert {
